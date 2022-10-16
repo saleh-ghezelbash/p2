@@ -1,0 +1,33 @@
+<div class="container">
+
+  <form class="row g-3 p-2 m-3 justify-content-center">
+    <label for="input" class="col-auto pt-1">Beer Name:</label>
+    <div class="col-auto">
+      <input type="text" class="form-control" id="input" placeholder="Beer Name..." (input)="onInput($event)">
+    </div>
+    <div class="col-auto">
+      <button (click)="onClick()" class="btn btn-primary mb-3">Send</button>
+    </div>
+  </form>
+
+  <div>
+    <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 row-cols-sm-1 g-4">
+      <div class="col" *ngFor="let d of beers | async">
+        <div class="card">
+          <div class="row no-gutters">
+            <div class="col-4 mw-100">
+              <img [src]="d.image_url" width="150px" height="200px" class="m-1">
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <h5 class="card-title">{{d.name}}</h5>
+                <p class="card-text">{{d.tagline}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
